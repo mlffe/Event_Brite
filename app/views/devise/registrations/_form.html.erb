@@ -1,0 +1,45 @@
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="form-row">
+    <div class="col">
+ <%= f.label :first_name,'Prénom' %>
+  <%= f.text_field :first_name, min:1, class: "form-control", placeholder: 'Qui est tu ?'%>
+  </div>
+  <br>
+  <div class="col">
+   <%= f.label :last_name,'Nom' %>
+  <%= f.text_field :last_name, min:1, class: "form-control", placeholder: 'Et ton nom ??'%>
+  </div>
+  <br>
+   <div class="col">
+    <%= f.label :email, "Émail" %><br />
+    <%= f.email_field :email, class: "form-control",autofocus: true, autocomplete: "email", placeholder: 'ton mail ??'%>
+  </div>
+  </div>
+<br>
+
+  <%= f.label :description,'Description' %>
+  <%= f.text_area :description, class: "form-control", rows: 3, placeholder: 'Décris toi !!!' %>
+  <br>
+   <div class="form-row">
+  <div class="col">
+    <%= f.label :password , 'Mot de passe'%>
+    <% if @minimum_password_length %>
+    <em><small>(<%= @minimum_password_length %> caractères mini)</small></em>
+    <% end %><br />
+    <%= f.password_field :password, class: "form-control",autocomplete: "new-password" %>
+  </div>
+
+  <div class="col">
+    <%= f.label :password_confirmation, 'Confirmation du mot de passe' %><br />
+    <%= f.password_field :password_confirmation, class: "form-control",autocomplete: "new-password" %>
+  </div>
+  </div>
+  <br>
+
+  <div class="actions">
+    <%= f.submit "Je m'inscris",  class: "btn btn-primary" %>
+  </div>
+<% end %>
+

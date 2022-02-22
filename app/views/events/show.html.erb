@@ -1,0 +1,29 @@
+
+<div class="card">
+  <h3 class="card-header text-center"><%= @event.title %></h3>
+
+  <div class="container col-8 p-4">
+  <h4 class="card-title text-center"><%= @event.description %></h4>
+  <p class="card-body">
+
+      Rendez vous à 
+      <%= @event.location %>
+      le
+      <%= @event.start_date %>
+      pendant
+      <%= @event.duration %> minutes.
+
+    </br>
+
+      Un Event unique pour la modique somme de 
+      <%= @event.price %> €
+
+       </br>
+
+       Il y' as en se moment
+      <%= @event.attendances.size %>
+      d'inscrit(s).
+</p>
+<p class="ml-auto">Le mail du créateur de l'Event <%= @event.admin.email %></p>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color: #FFFFFF;">
+  <%= link_to "Eventbrite", root_path, :class=>"navbar-brand ml-5" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto mr-5">
+   
+      <%= link_to "Créer un Event", new_event_path, :class=> "btn btn-outline-primary ml-auto"%>
+      <%= render "layouts/dropdown" %>
+       </ul>
+  </div>
+</nav>
+</header>

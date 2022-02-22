@@ -1,0 +1,43 @@
+<h2>Gérer mon compte</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field" >
+    <%= f.label :email ,'Email' %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password ,'Mot de passe' %> <small><i>(laisser vite si tu ne veux pas le changer)</i></small><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <small><em><%= @minimum_password_length %> caractère minimum</em></small>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation ,'Confirmation du mot de passe'%><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+<br>
+  <div class="actions">
+    <%= f.submit "Mettre à jour", :class=> "btn btn-primary ml-auto"%>
+  </div>
+<% end %>
+<br>
+<h3>Supprimer mon compte</h3>
+
+<p>Mécontent ? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Est-tu sûr de vouloir supprimer ton compte?" }, method: :delete, :class=> "btn btn-danger ml-auto" %></p>
+
+<%= link_to "< Retour", :back %>
